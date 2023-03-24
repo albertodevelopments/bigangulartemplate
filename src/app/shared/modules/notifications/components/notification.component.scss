@@ -1,0 +1,19 @@
+.toast{
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 1;
+    transform: translate(0);
+    transition: opacity .6s, transform .6s;
+
+    ibm-toast{
+        position: absolute;
+        margin: 0;
+        right: 0;
+    }
+}
+
+.hide{
+    transform: translateX(200px);
+    opacity: 0;
+}

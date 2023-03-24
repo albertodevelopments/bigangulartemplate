@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="login-box">
+        <div class="heading">
+            <img src="assets/images/ISIParts logo horizontal.png" alt="Logo" class="isi-icon">
+        </div>
+        <div class="body">
+            <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <ibm-label
+                    [invalid]="username.touched && username.errors?.['required']"
+                    invalidText="{{'label.error.login.no.user' | translate | async}}">
+                    <input
+                        type="text" 
+                        ibmText 
+                        placeholder="{{'label.login.userName' | translate | async }}"
+                        formControlName="username"
+                        [invalid]="username.touched && username.errors?.['required']"
+                        [ngClass]="{'ng-invalid ng-dirty': username.touched && username.errors?.['required']}" />
+                </ibm-label>
+                <ibm-label
+                    [invalid]="password.touched && password.errors?.['required']"
+                    invalidText="{{'label.error.login.no.password' | translate | async}}">
+                    <input
+                        type="password" 
+                        ibmText 
+                        placeholder="{{'label.login.password' | translate | async }}"
+                        formControlName="password"
+                        [invalid]="password.touched && password.errors?.['required']"
+                        [ngClass]="{'ng-invalid ng-dirty': password.touched && password.errors?.['required']}" />
+                </ibm-label>
+                <button 
+                    type="submit" 
+                    ibmButton="primary"
+                    [disabled]="!loginForm.valid"
+                    >
+                    {{ 'label.login.button' | translate | async }}
+                </button>
+                <!-- <div class="input-group">
+                    <input 
+                        type="text" 
+                        class="p-inputtext-sm" 
+                        pInputText 
+                        placeholder="{{'label.userName' | translate | async }}"
+                        formControlName="username"
+                        [ngClass]="{'ng-invalid ng-dirty': username.touched && username.errors?.required}"
+                        />
+                    <small 
+                        *ngIf="username.touched && username.errors?.required"
+                        class="p-error block">{{'label.error.login.no.user' | translate | async }}</small>
+                </div>
+                <div class="input-group">
+                    <input 
+                        type="password" 
+                        class="p-inputtext-sm" 
+                        pInputText 
+                        placeholder="{{'label.password' | translate | async }}"
+                        formControlName="password"
+                        [ngClass]="{'ng-invalid ng-dirty': password.touched && password.errors?.required}"
+                    />
+                    <small
+                    *ngIf="password.touched && password.errors?.required"
+                    class="p-error block">{{'label.error.login.no.password' | translate | async }}</small>                         
+                </div> -->
+                <!-- <Button 
+                    type="submit" 
+                    class="btn-primary"
+                    [disabled]="!loginForm.valid"
+                >{{ 'label.login' | translate | async }}</Button> -->
+            </form>
+        </div>
+    </div>
+</div>
+<app-notification
+    [type]="type"
+    [title]="title"
+    [subtitle]="subtitle"
+    [caption]="caption"
+    [lowContrast]="lowContrast"
+    [showClose]="showClose"
+></app-notification>
+

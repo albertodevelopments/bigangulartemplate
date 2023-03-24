@@ -1,0 +1,13 @@
+<div class='toast'
+    [ngClass]="{'hide': !show}"
+>
+    <ibm-toast         
+      [notificationObj]='{
+        type: type,
+        title: title,
+        subtitle: subtitle,
+        caption: caption,
+        lowContrast: lowContrast,
+        showClose: showClose
+    }'></ibm-toast>         
+</div>

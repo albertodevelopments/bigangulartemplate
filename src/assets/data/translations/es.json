@@ -1,0 +1,31 @@
+{
+    "label.login.userName": "Usuario",
+    "label.login.password": "Contraseña",
+    "label.login.button": "Iniciar Sesión",
+
+    "label.error.header": "Error",
+    "label.error.401": "Usuario o contraseña incorrectos",
+    "label.error.500": "Error con el servidor contacte con un administrador",
+    "label.error.unknown": "Error desconocido, contacte con el administrador",
+    "label.error.config.not.found": "No se ha podido cargar el fichero de configuraciones. Conctacte con el administrador",
+    "label.error.login.no.user": "Introduce el nombre de usuario",
+    "label.error.login.no.password": "Introduce la contraseña",
+    "label.error.api.file": "Error al obtener el fichero de parámetros de conexión",    
+
+    "label.menu.close": "Cerrar menú",
+    "label.menu.open": "Abrir menú",
+
+    "label.header.config": "Configuración",
+    "label.header.logout": "Salir",
+
+    "label.userconfig.title": "Configuración de usuario",
+    "label.userconfig.language.label": "Seleccione el idioma",
+    "label.userconfig.language.placeholder": "Idioma de la aplicación",
+    "label.userconfig.language.spanish": "Español",
+    "label.userconfig.language.portuguese": "Portugués",
+    "label.userconfig.button.cancel": "Cancelar",
+    "label.userconfig.button.accept": "Aceptar",
+    "label.userconfig.error.no.language": "Selecciona un idioma",
+    "label.userconfig.username.label": "Nombre",
+    "label.userconfig.company.label": "Empresa"
+}

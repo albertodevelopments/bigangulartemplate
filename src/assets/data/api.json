@@ -1,0 +1,7 @@
+{
+    "url":"http://servidora:8810/IsiParts-Web",
+    "authentication":{
+        "type":"basic",
+         "url": "http://servidora:8810/IsiParts-Web/rest/IsiParts-WebService/LoginBasic"
+    }
+}

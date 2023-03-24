@@ -1,0 +1,5 @@
+export { SharedModule } from './shared.module'
+export { TranslationService } from './modules/translation/services/translation.service'
+export { TranslationPipe } from './modules/translation/pipes/translation.pipe'
+export { NotificationComponent } from '@shared/modules/notifications/components/notification.component'
+export { NotificationEventService } from './modules/notifications/services/notification-event.service'

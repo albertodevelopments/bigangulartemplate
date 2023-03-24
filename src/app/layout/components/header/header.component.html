@@ -1,0 +1,36 @@
+<div class="navbar">
+    <div class="navbar-left">
+        <button 
+            type="button" 
+            class="bx--header__menu-trigger bx--header__action bx--header__menu-toggle" 
+            [title]="active ? ('label.menu.close' | translate | async) : ('label.menu.open' | translate | async) "
+            (click)="handleClickMenu()"
+        >
+            <svg *ngIf="!active" size="20" ng-reflect-ibm-icon="menu" ng-reflect-size="20" xmlns="http://www.w3.org/2000/svg" focusable="false" preserveAspectRatio="xMidYMid meet" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><path d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z"></path></svg>
+            <svg *ngIf="active" ibmIcon="close" size="20" ng-reflect-ibm-icon="close" ng-reflect-size="20" xmlns="http://www.w3.org/2000/svg" focusable="false" preserveAspectRatio="xMidYMid meet" aria-hidden="true" width="20" height="20" viewBox="0 0 32 32"><path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"></path></svg>
+        </button>
+        <!-- <ibm-hamburger  *ngIf="hasHamburger" [active]="active" (selected)="active = !active"></ibm-hamburger> -->
+        <img src="assets\images\IsiPartsLogo.png" class="logo" title="Home">
+    </div>
+    
+    <div class="user-info">
+        <ibm-header-navigation >
+            <!-- <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2A10.13 10.13 0 0 0 2 12a10 10 0 0 0 4 7.92V20h.1a9.7 9.7 0 0 0 11.8 0h.1v-.08A10 10 0 0 0 22 12 10.13 10.13 0 0 0 12 2zM8.07 18.93A3 3 0 0 1 11 16.57h2a3 3 0 0 1 2.93 2.36 7.75 7.75 0 0 1-7.86 0zm9.54-1.29A5 5 0 0 0 13 14.57h-2a5 5 0 0 0-4.61 3.07A8 8 0 0 1 4 12a8.1 8.1 0 0 1 8-8 8.1 8.1 0 0 1 8 8 8 8 0 0 1-2.39 5.64z"></path><path d="M12 6a3.91 3.91 0 0 0-4 4 3.91 3.91 0 0 0 4 4 3.91 3.91 0 0 0 4-4 3.91 3.91 0 0 0-4-4zm0 6a1.91 1.91 0 0 1-2-2 1.91 1.91 0 0 1 2-2 1.91 1.91 0 0 1 2 2 1.91 1.91 0 0 1-2 2z"></path></svg> -->
+            <!-- <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><style>.cls-1{fill:none;}</style></defs><title>user</title><path d="M16,4a5,5,0,1,1-5,5,5,5,0,0,1,5-5m0-2a7,7,0,1,0,7,7A7,7,0,0,0,16,2Z"/><path d="M26,30H24V25a5,5,0,0,0-5-5H13a5,5,0,0,0-5,5v5H6V25a7,7,0,0,1,7-7h6a7,7,0,0,1,7,7Z"/><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/></svg> -->
+            <svg class="header-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                <defs><style>.cls-1 {fill: none;}</style></defs><path d="M16,8a5,5,0,1,0,5,5A5,5,0,0,0,16,8Zm0,8a3,3,0,1,1,3-3A3.0034,3.0034,0,0,1,16,16Z"/><path d="M16,2A14,14,0,1,0,30,16,14.0158,14.0158,0,0,0,16,2ZM10,26.3765V25a3.0033,3.0033,0,0,1,3-3h6a3.0033,3.0033,0,0,1,3,3v1.3765a11.8989,11.8989,0,0,1-12,0Zm13.9925-1.4507A5.0016,5.0016,0,0,0,19,20H13a5.0016,5.0016,0,0,0-4.9925,4.9258,12,12,0,1,1,15.985,0Z"/><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/>
+              </svg>            
+            <ibm-header-menu title="{{(userSession$ | async)?.NomUsuarioSesion}}">
+                <ibm-header-item (click)="openUserConfig()">{{'label.header.config' | translate | async}}</ibm-header-item>
+                <ibm-header-item (click)="logOut()">{{'label.header.logout' | translate | async }}</ibm-header-item>
+            </ibm-header-menu>
+        </ibm-header-navigation>
+    </div>
+</div>
+<!-- Ventana modal con la configuración del usuario -->
+<app-user-config
+    [open]="userConfigOpen"
+    (close)="closeUserConfig()"
+>
+</app-user-config>
+
