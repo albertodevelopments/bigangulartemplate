@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="login-box">
+    <div class="login-box box">
         <div class="heading">
             <img src="assets/images/ISIParts logo horizontal.png" alt="Logo" class="isi-icon">
         </div>
@@ -7,22 +7,22 @@
             <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <ibm-label
                     [invalid]="username.touched && username.errors?.['required']"
-                    invalidText="{{'label.error.login.no.user' | translate | async}}">
+                    invalidText="{{'login.error.no.user' | translate}}">
                     <input
                         type="text" 
                         ibmText 
-                        placeholder="{{'label.login.userName' | translate | async }}"
+                        placeholder="{{'login.placeholder.userName' | translate }}"
                         formControlName="username"
                         [invalid]="username.touched && username.errors?.['required']"
                         [ngClass]="{'ng-invalid ng-dirty': username.touched && username.errors?.['required']}" />
                 </ibm-label>
                 <ibm-label
                     [invalid]="password.touched && password.errors?.['required']"
-                    invalidText="{{'label.error.login.no.password' | translate | async}}">
+                    invalidText="{{'login.error.no.password' | translate}}">
                     <input
                         type="password" 
                         ibmText 
-                        placeholder="{{'label.login.password' | translate | async }}"
+                        placeholder="{{'login.placeholder.password' | translate }}"
                         formControlName="password"
                         [invalid]="password.touched && password.errors?.['required']"
                         [ngClass]="{'ng-invalid ng-dirty': password.touched && password.errors?.['required']}" />
@@ -32,7 +32,7 @@
                     ibmButton="primary"
                     [disabled]="!loginForm.valid"
                     >
-                    {{ 'label.login.button' | translate | async }}
+                    {{ 'login.label.button' | translate }}
                 </button>
                 <!-- <div class="input-group">
                     <input 

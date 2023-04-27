@@ -4,9 +4,10 @@
 ></app-header>
 <app-menu
     [active]="menuOpen"
+    [menuStructure]="menuStructure"
 ></app-menu>
 <div class="layout-container"
     [ngClass]="{'layout-container--expanded': menuOpen && largeSize}"
-    >    
+    >        
     <router-outlet></router-outlet>
 </div>    

@@ -11,7 +11,8 @@ import { AuthenticationService, CoreModule } from '@core/index';
 import { SharedModule, TranslationService } from '@shared/index';
 import { LayoutModule } from '@layout/layout.module';
 import { LoaderComponent } from '@shared/modules/loader/components/loader.component';
-import { LoaderInterceptor } from '@core/interceptors/loader.interceptor'
+import { LoaderInterceptorService } from '@core/interceptors/loader.interceptor'
+import { AuthInterceptorService } from '@core/interceptors/authorization.interceptor';
 
 /** Incicializamos la aplicación cargando las traducciones. Si devuelve error,
  *  no cargará la página
@@ -50,12 +51,17 @@ export function initializeApp(
       multi: true
     },
     {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    },
+    {
       provide: LocationStrategy,
       useClass: PathLocationStrategy
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: LoaderInterceptor,
+      useClass: LoaderInterceptorService,
       multi:true
     }
   ],

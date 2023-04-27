@@ -10,6 +10,7 @@ export class TranslationService {
 
   private _translationsSet: BehaviorSubject<any | null>
   public  translationSet$: Observable<any | null>
+  public translationSet: any
 
   constructor(
     private http: HttpClient,
@@ -18,6 +19,7 @@ export class TranslationService {
     // this._translationsFile = `${localUrls.translationsPath}${navigator.language}.json`
     this._translationsSet = new BehaviorSubject<any | null>(null)
     this.translationSet$ = this._translationsSet.asObservable()
+    this.translationSet = {}
     
     /** Utilizamos el httpbackend para que esta consulta no pase por los interceptores */
     this.http = new HttpClient(httpBackend)
@@ -43,8 +45,9 @@ export class TranslationService {
       return this.http.get<any>(translationsFile)
         .pipe(take(1))
         .subscribe({
-          next: data => {
-            this._translationsSet.next(data)
+          next: translationObject => {
+            this._translationsSet.next(translationObject)
+            this.translationSet = translationObject
             resolve()
           },
           error: err => {
@@ -57,12 +60,16 @@ export class TranslationService {
     })
   }
 
-  getTranslation(word: string): Observable<string>{
-    return this.translationSet$
-      .pipe(
-        map(response => {
-          return response[word] as string
-        })
-      )
+  // getTranslation(word: string): Observable<string>{
+  //   return this.translationSet$
+  //     .pipe(
+  //       map(response => {
+  //         return response[word] as string
+  //       })
+  //     )
+  // }
+
+  getTranslation(word: string): string{
+    return this.translationSet[word] as string
   }
 }

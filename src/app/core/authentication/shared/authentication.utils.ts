@@ -7,13 +7,13 @@ export function loginErrorHandler(error: number): iAuthenticationError{
         case 401:
             errorResponse = {
                 'errorCode': error,
-                'errorMessage': 'label.error.401'
+                'errorMessage': 'login.error.401'
             }
             break;
         default:
             errorResponse = {
                 'errorCode': error,
-                'errorMessage': 'label.error.unknown'
+                'errorMessage': 'global.error.unknown'
             }
     }
 

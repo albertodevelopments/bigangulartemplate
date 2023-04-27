@@ -1,6 +1,7 @@
 export { LayoutComponent } from '@layout/layout.component'
 export { LayoutModule } from '@layout/layout.module'
 export { LayoutRoutingModule } from '@layout/layout-routing.module'
+export { LayoutService } from '@layout/services/layout.service'
 
 /** Menú */
 export { MenuComponent } from '@layout/components/menu/menu.component'

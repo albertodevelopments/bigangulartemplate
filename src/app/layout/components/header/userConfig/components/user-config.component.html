@@ -3,19 +3,19 @@
     [open]="open"
     (overlaySelected)="closeModal()">
     <ibm-modal-header (closeSelect)="closeModal()">
-        <h3 ibmModalHeaderHeading>{{ 'label.userconfig.title' | translate | async }}</h3>
+        <h3 ibmModalHeaderHeading>{{ 'userconfig.header.title' | translate }}</h3>
     </ibm-modal-header>
     <form [formGroup]="configForm" (ngSubmit)="onSubmit()">
         <section ibmModalContent [hasForm]="true" class="section">
             <ibm-label
                 [invalid]="NomUsuarioSesion.touched && NomUsuarioSesion.errors?.['required']"
-                invalidText="{{ 'label.userconfig.error.no.language' | translate | async }}"
+                invalidText="{{ 'userconfig.error.no.language' | translate }}"
             >
-                {{'label.userconfig.username.label' | translate | async }}
+                {{'userconfig.username.label' | translate }}
                 <input                    
                     type="text" 
                     ibmText 
-                    placeholder="{{'label.login.NomUsuarioSesion' | translate | async }}"
+                    placeholder="{{'label.login.NomUsuarioSesion' | translate }}"
                     formControlName="NomUsuarioSesion"
                     [invalid]="NomUsuarioSesion.touched && NomUsuarioSesion.errors?.['required']"
                     [ngClass]="{'ng-invalid ng-dirty': NomUsuarioSesion.touched && NomUsuarioSesion.errors?.['required']}"
@@ -23,30 +23,30 @@
             </ibm-label>
             <ibm-label
             >
-                {{'label.userconfig.company.label' | translate | async }}
+                {{'userconfig.company.label' | translate }}
                 <input                    
                     type="text" 
                     ibmText 
-                    placeholder="{{'label.login.NomEmpresaSesion' | translate | async }}"
+                    placeholder="{{'label.login.NomEmpresaSesion' | translate }}"
                     formControlName="NomEmpresaSesion" />
                      
             </ibm-label>
             <ibm-label
                 [invalid]="CodIdiomaSesion.touched && CodIdiomaSesion.errors?.['required']"
-                invalidText="{{ 'label.userconfig.error.no.language' | translate | async }}"
+                invalidText="{{ 'userconfig.error.no.language' | translate }}"
             >
                 <ibm-select
                     size="md"
-                    label="{{ 'label.userconfig.language.label' | translate | async }}"
+                    label="{{ 'userconfig.language.label' | translate }}"
                     theme="light"
                     display="default"
                     formControlName="CodIdiomaSesion"
                     [invalid]="CodIdiomaSesion.touched && CodIdiomaSesion.errors?.['required']"
                     [ngClass]="{'ng-invalid ng-dirty': CodIdiomaSesion.touched && CodIdiomaSesion.errors?.['required']}"
                     >
-                    <option value="" disabled selected hidden>{{ 'label.userconfig.language.placeholder' | translate | async }}</option>
-                    <option value="es">{{ 'label.userconfig.language.spanish' | translate | async }}</option>
-                    <option value="pt">{{ 'label.userconfig.language.portuguese' | translate | async }}</option>
+                    <option value="" disabled selected hidden>{{ 'userconfig.language.placeholder' | translate }}</option>
+                    <option value="es">{{ 'userconfig.language.spanish' | translate }}</option>
+                    <option value="pt">{{ 'userconfig.language.portuguese' | translate }}</option>
                 </ibm-select>
             </ibm-label>
         </section>
@@ -54,13 +54,13 @@
             <button 
                 type="button"
                 class="bx--btn bx--btn--secondary" 
-                (click)="closeModal()">{{ 'label.userconfig.button.cancel' | translate | async }}</button>
+                (click)="closeModal()">{{ 'userconfig.button.cancel' | translate }}</button>
             <button 
                 type="submit" 
                 class="bx--btn bx--btn--primary" 
                 [disabled]="!configForm.valid"
                 modal-primary-focus>
-            {{ 'label.userconfig.button.accept' | translate | async }}</button>
+            {{ 'userconfig.button.accept' | translate }}</button>
         </ibm-modal-footer>
     </form>
 </ibm-modal>

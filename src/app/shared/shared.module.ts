@@ -10,7 +10,7 @@ import { NotificationComponent } from '@shared/modules/notifications/components/
 
 /* Librerías */
 import { ButtonModule, InputModule, NotificationModule, UIShellModule, IconModule, LoadingModule, DialogModule, ModalModule,
-         PlaceholderModule, SelectModule } from 'carbon-components-angular';
+         PlaceholderModule, SelectModule, GridModule } from 'carbon-components-angular';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { ButtonModule, InputModule, NotificationModule, UIShellModule, IconModul
     LoadingModule,
     DialogModule,
     ModalModule,
-    SelectModule
+    SelectModule,
+    GridModule
   ],
   exports: [
     FormsModule,
@@ -47,7 +48,8 @@ import { ButtonModule, InputModule, NotificationModule, UIShellModule, IconModul
     LoadingModule,
     DialogModule,
     ModalModule,
-    SelectModule
+    SelectModule,
+    GridModule
   ]
 })
 export class SharedModule { }

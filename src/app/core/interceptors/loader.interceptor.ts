@@ -1,13 +1,15 @@
 /** Angular core */
-import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent } from '@angular/common/http';
-import { finalize, Observable } from 'rxjs';
+import { Injectable } from '@angular/core'
+
+/** Http */
+import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent } from '@angular/common/http'
+import { finalize, Observable } from 'rxjs'
 
 /** App imports */
 import { LoaderService } from '@shared/modules/loader/services/loader.service';
 
 @Injectable()
-export class LoaderInterceptor implements HttpInterceptor {
+export class LoaderInterceptorService implements HttpInterceptor {
     
   constructor(
     private loaderService: LoaderService

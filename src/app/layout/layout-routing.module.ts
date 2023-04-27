@@ -13,8 +13,13 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: '',
-        loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule),
+        path: 'cliente',
+        loadChildren: () => import('@modules/cliente/cliente.module').then(m => m.ClienteModule),
+        canLoad: [AuthenticationGuard]
+      },
+      {
+        path: 'home',
+        loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule),        
         canLoad: [AuthenticationGuard]
       },
     ]

@@ -1,14 +1,21 @@
-import { iAuthentication } from "../interfaces/iauthentication";
+import { iAuthentication } from "../interfaces/iauthentication"
 
 export class Authentication implements iAuthentication{
 
     private _auth: iAuthentication
 
-    constructor(auth: iAuthentication){
-        this._auth = auth
+    constructor(){
+        this._auth = {
+            username: '',
+            password: ''
+        }
     }
 
-    getRequestData(): any {
+    setAuthObject(authObject: iAuthentication){
+        this._auth = authObject
+    }
+
+    getAuthenticationRequestData(): any {
         return {
             request: {
                 Usuario: this._auth.username,
@@ -18,10 +25,10 @@ export class Authentication implements iAuthentication{
     }
 
     getContentType(authenticationType: string):string{
-        switch(authenticationType){
-            case 'basic':
+        switch(authenticationType.toUpperCase()){
+            case 'BASIC':
                 return 'application/json'
-            case 'sso-oe':
+            case 'SSI-OE':
                 return 'application/x-www-form-urlencoded'
             default:
                 return 'application/json'

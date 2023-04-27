@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="header">
+        <h1 class="title">Mantenimiento de Clientes</h1>
+    </div>
+    <div class="body box">
+        <div class="form">
+            <div ibmGrid [condensed]="false">
+				<div
+					ibmRow
+                    class="row"
+					[gutter]="true"
+					[condensed]="false">
+              		<div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                        <ibm-label>
+                            <span>{{ 'cliente.codigo.label' | translate }}</span>
+                            <input
+                                ibmText
+                                placeholder="{{'cliente.codigo.placeholder' | translate }}"
+                                [autocomplete]="true">
+                        </ibm-label>
+                    </div>
+					<div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                        <ibm-label>
+                            <span>{{ 'cliente.cif.label' | translate }}</span>
+                            <input
+                                ibmText
+                                placeholder="{{'cliente.cif.placeholder' | translate }}"
+                                [autocomplete]="true">
+                        </ibm-label>
+                    </div>
+                    <div ibmCol [columnNumbers]="{'md': 4, 'sm': 12}">
+                        <ibm-label>
+                            <span>{{ 'cliente.razon.social.label' | translate }}</span>
+                            <input
+                                ibmText
+                                placeholder="{{'cliente.razon.social.placeholder' | translate }}"
+                                [autocomplete]="true">
+                        </ibm-label>
+                    </div>
+                </div>
+                <div
+					ibmRow
+                    class="row"
+					[gutter]="true"
+					[condensed]="false">                    
+                    <div ibmCol [columnNumbers]="{'md': 4, 'sm': 12}">
+                        <ibm-label>
+                            <span>{{ 'cliente.direccion.label' | translate }}</span>
+                            <input
+                                ibmText
+                                placeholder="{{'cliente.direccion.placeholder' | translate }}"
+                                [autocomplete]="true">
+                        </ibm-label>
+                    </div>
+                    <div ibmCol [columnNumbers]="{'md': 4, 'sm': 12}">
+                        <ibm-label>
+                            <span>{{ 'cliente.poblacion.label' | translate }}</span>
+                            <input
+                                ibmText
+                                placeholder="{{'cliente.poblacion.placeholder' | translate }}"
+                                [autocomplete]="true">
+                        </ibm-label>
+                    </div>
+            	</div>
+                <div
+					ibmRow
+                    class="row"
+					[gutter]="true"
+					[condensed]="false">                    
+                    <div ibmCol [columnNumbers]="{'md': 4, 'sm': 12}">
+                        <ibm-label>
+                            <span>{{ 'cliente.provincia.label' | translate }}</span>
+                            <input
+                                ibmText
+                                placeholder="{{'cliente.provincia.placeholder' | translate }}"
+                                [autocomplete]="true">
+                        </ibm-label>
+                    </div>
+                    <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                        <ibm-label>
+                            <span>{{ 'cliente.telefono.label' | translate }}</span>
+                            <input
+                                ibmText
+                                placeholder="{{'cliente.telefono.placeholder' | translate }}"
+                                [autocomplete]="true">
+                        </ibm-label>
+                    </div>
+            	</div>
+            </div>
+        </div>
+    </div>
+</div>

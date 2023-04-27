@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 /** Aplicación */
 import { iAuthentication, iAuthenticationError, AuthenticationService, loginErrorHandler, AuthenticationConfigService } from '@core/index';
+import { LayoutService } from '@layout/index';
 import { NotificationEventService, TranslationPipe } from '@shared/index';
 
 @Component({
@@ -36,6 +37,7 @@ export class LoginComponent implements OnInit{
     protected eventService: NotificationEventService,
     private router: Router,
     private authenticationConfigService: AuthenticationConfigService,
+    private layoutService: LayoutService,
   ){
     this.loginForm = this.formBuilder.group({
       username: new FormControl('', [Validators.required]),
@@ -70,10 +72,8 @@ export class LoginComponent implements OnInit{
   }
 
   showLoadingErrorMessage(){
-    this.translationPipe.transform('label.error.api.file').subscribe(translatedMessage => {
-      this.caption = translatedMessage
-      this.showErrorMessage()
-    })
+    this.caption = this.translationPipe.transform('global.error.api.file')
+    this.showErrorMessage()
   }
 
   onSubmit(): void{
@@ -94,10 +94,25 @@ export class LoginComponent implements OnInit{
          *  configuración
          */
         if(results === null) this.handleError(0) 
-        else this.router.navigate(['layout/home'])
-
+        else {
+          this.layoutService.loadMenu().subscribe({
+            next: () => {
+              this.router.navigate(['layout/home'])
+            },
+            error: errorResponse => {
+              this.type = 'error'
+              this.title = this.translationPipe.transform('global.error.header')
+              this.caption = this.translationPipe.transform('login.error.no.authorization')
+              setTimeout(() => {
+                this.eventService.showNotification()
+                console.log(errorResponse)
+              })
+            }
+          })
+          
+        }
       },
-      error: error => this.handleError(error.status),
+      error: error => this.handleError(error.status)
     })
   }
 
@@ -105,14 +120,10 @@ export class LoginComponent implements OnInit{
   private handleError(error: number): void{
     this.type = 'error'
     const errorResponse: iAuthenticationError = loginErrorHandler(error)
-    
-    this.translationPipe.transform('label.error.header').subscribe(errorHeader => {  
-      this.title = errorHeader
-      this.translationPipe.transform(errorResponse.errorMessage).subscribe(errorMessage => {
-        this.caption = errorMessage
-        this.showErrorMessage()
-      })
-    })
+
+    this.title = this.translationPipe.transform('global.error.header')
+    this.caption = this.translationPipe.transform(errorResponse.errorMessage)
+    this.showErrorMessage()
   }
 
   showErrorMessage():void {

@@ -5,10 +5,7 @@ import { Router } from '@angular/router';
 
 /** App imports */
 import { TranslationService } from '@shared/index';
-import { iUserConfig } from '../interfaces/iuser-config';
-import { UserConfig } from '../models/user-config';
 import { AuthenticationService, iUserSession, UserSession } from '@core/index';
-import { Observable } from 'rxjs';
 
 /** Librerías */
 
@@ -45,9 +42,6 @@ export class UserConfigComponent {
         NomEmpresaSesion: this.userSession.NomEmpresaSesion,
         CodIdiomaSesion: this.userSession.CodIdiomaSesion
       }) 
-
-      console.log(this.userSession);
-      
     })
     this.userSession = new UserSession(
       {
@@ -78,7 +72,6 @@ export class UserConfigComponent {
 
   onSubmit(){
     this.configForm.markAsPending()
-    console.log(this.configForm.value);
     
     this.authenticationService.setUserSession({
       ...this.userSession,

@@ -52,15 +52,16 @@ export class AuthenticationService {
     }
 
     /** Obtenemos los parámetros de conexión a partir del fichero de configuración */
-    const auth = new Authentication(authObject)
+    const auth = new Authentication()
+    auth.setAuthObject(authObject)
 
     /** Parametrizamos la llamada http a la API con los parámetros de configuración obtenidos */
     const contentType = auth.getContentType(AuthenticationConfigService.apiConfiguration.value.authentication.type)
     this._apiUrl = AuthenticationConfigService.apiConfiguration.value.url
     this._authType = AuthenticationConfigService.apiConfiguration.value.authentication.type
 
-    const body = auth.getRequestData()
-    const headers: HttpHeaders = new HttpHeaders().set('Content-Type', contentType)
+    const body = auth.getAuthenticationRequestData()
+    const headers: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json')
     const url = AuthenticationConfigService.apiConfiguration.value.authentication.url
 
     return this.http.post<iAuthenticationSuccess>(url, body, {headers}).pipe(
@@ -79,7 +80,8 @@ export class AuthenticationService {
 
   private getAuthenticatedUser(token: string): Observable<iUserSession>{
     const url: string = this._apiUrl + "/rest/IsiParts-WebService/WebGlobalData"
-    const headers: HttpHeaders = new HttpHeaders({ 'Authorization': `${this._authType} ${token}` }); 
+    const headers: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json')
+    // const headers: HttpHeaders = new HttpHeaders({ 'Authorization': `${this._authType} ${token}` }); 
 
     return this.http.get<any>(url, {headers})
       .pipe(
@@ -96,9 +98,6 @@ export class AuthenticationService {
             CodAgenteSesion: data.response.VariablesGlobales.CodAgenteSesion,
             NomAgenteSesion: data.response.VariablesGlobales.NomAgenteSesion,
           }
-
-          console.log(userSession);
-          
           return userSession
         })
       )

@@ -5,14 +5,14 @@ import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
 /** App imports */
-import { HomeComponent } from '@modules/home'
+import { ClienteComponent } from '@modules/cliente'
 
 const routes: Routes = [
-  {path: '', component: HomeComponent}
+  {path: '', component: ClienteComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomeRoutingModule { }
+export class ClienteRoutingModule { }

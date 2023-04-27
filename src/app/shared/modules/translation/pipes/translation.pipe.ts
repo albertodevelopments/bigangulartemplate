@@ -15,7 +15,11 @@ export class TranslationPipe implements PipeTransform {
   /** Traducimos las etiquetas de la aplicación a través de un servicio
    *  que consulta los ficheros de idiomas y devuelve las traducciones
    */
-  transform(word: string): Observable<string>{
+  // transform(word: string): Observable<string>{
+  //   return this.translationService.getTranslation(word)
+  // }
+
+  transform(word: string): string{
     return this.translationService.getTranslation(word)
   }
 
