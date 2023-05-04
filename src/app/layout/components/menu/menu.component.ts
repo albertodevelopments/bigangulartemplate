@@ -1,8 +1,9 @@
 /** Angular core */
 import { Component, Input, OnInit} from '@angular/core'
+import { Router } from '@angular/router'
 
 /** App imports */
-import { AuthenticationService, iUserSession } from '@core/index'
+import { AuthenticationService } from '@core/index'
 import { take } from 'rxjs'
 
 @Component({
@@ -25,6 +26,7 @@ export class MenuComponent implements OnInit{
 
   constructor(
     private authenticationService: AuthenticationService,
+    private router: Router
   ){
     this.active = false
     this.mediumSize = false
@@ -40,15 +42,12 @@ export class MenuComponent implements OnInit{
     this.authenticationService.userSession$.pipe(
       take(1)
     ).
-    subscribe(userSession => {
-      this.loadMenuStructure(responseArray, userSession)
+    subscribe(() => {
+      this.loadMenuStructure(responseArray)
     })
   } 
 
-  loadMenuStructure(responseArray: any, userSession: iUserSession): void{
-    console.log(userSession);
-    
-
+  loadMenuStructure(responseArray: any): void{
     /** Cargamos el menú */
     this.menuArray = responseArray.map((item: any) => {
       const { text: title, childs, id } = item
@@ -76,13 +75,18 @@ export class MenuComponent implements OnInit{
     /** Cargamos opciones */
     this.submenuArray.forEach(submenuItem => {
       this.menuOptions = submenuItem.childs.map((item: any) => {
-        const { text, id } = item
+        const { text, id, route } = item
         return{
           id,
           text,
-          parentId: submenuItem.id
+          parentId: submenuItem.id,
+          url: `/layout/${route}`
         }
       })
     })
+  }
+
+  navigate(url: string): void{
+    this.router.navigateByUrl(url)
   }
 }

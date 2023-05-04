@@ -25,7 +25,7 @@ export class AuthenticationConfigService {
     /** Utilizamos el httpbackend para que esta consulta no pase por los interceptores */
     this.http = new HttpClient(httpBackend)
     this._configurationFile = localUrls.apiFile
-    
+
     AuthenticationConfigService.apiConfiguration = new BehaviorSubject<iAuthenticationConfig | null>(null)
   }
 

@@ -1,0 +1,69 @@
+{
+    "rows": [
+        {
+            "codigoCliente": 1,
+            "cif": "B60376333",
+            "razonSocial": "DIAMOND ESPAÑA, S.L",
+            "direccion": "C/ Mayor 3",
+            "poblacion": "CORNELLA DEL LLOBREGAT",
+            "provincia": "BARCELONA",
+            "telefono": "934127888",
+            "vendedor": "ARR",
+            "km": 5,
+            "mecanico": 4,
+            "comentarios": "Comentarios del cliente 1"
+        },
+        {
+            "codigoCliente": 10580,
+            "cif": "B8861555",
+            "razonSocial": "A D MARINA AUTOMOCIO, SL",
+            "direccion": "C/ MAS PUJOL, 32 34 POL IND CONGOST",
+            "poblacion": "SITGES",
+            "provincia": "BARCELONA",
+            "telefono": "938600888",
+            "vendedor": "ISI",
+            "km": 4,
+            "mecanico": 2,
+            "comentarios": "Comentarios del cliente 10580"
+        },
+        {
+            "codigoCliente": 3458,
+            "cif": "B60376888",
+            "razonSocial": "ANTONIO PEDRAJAS GARCIA",
+            "direccion": "C/ Mayor 3",
+            "poblacion": "VITORIA-GASTEIZ",
+            "provincia": "VITORIA",
+            "telefono": "934127777",
+            "vendedor": "ARR",
+            "km": 5,
+            "mecanico": 4,
+            "comentarios": "Comentarios del cliente 3458"
+        },
+        {
+            "codigoCliente": 85,
+            "cif": "B0000085",
+            "razonSocial": "CERAM. SUSPIRO DEL MORO",
+            "direccion": "CTRA. GRANADA-MOTRIL KM 10",
+            "poblacion": "MOTRIL",
+            "provincia": "GRANADA",
+            "telefono": "673545855",
+            "vendedor": "ARR",
+            "km": 3,
+            "mecanico": 2,
+            "comentarios": "Comentarios del cliente 85"
+        },
+        {
+            "codigoCliente": 57,
+            "cif": "B60198875",
+            "razonSocial": "MAQUINARIA AGRICOLA GURB, S.L.",
+            "direccion": "Ctra Sant Hipolit Pol Ind Gurb",
+            "poblacion": "GURB",
+            "provincia": "BARCELONA",
+            "telefono": "938865545",
+            "vendedor": "ISI",
+            "km": 10,
+            "mecanico": 4,
+            "comentarios": "Comentarios del cliente 57"
+        }
+    ]
+}

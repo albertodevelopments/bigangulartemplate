@@ -1,7 +1,7 @@
 /** Angular Core */
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 /** App imports */
 import { HttpClientModule } from '@angular/common/http'
@@ -10,12 +10,14 @@ import { NotificationComponent } from '@shared/modules/notifications/components/
 
 /* Librerías */
 import { ButtonModule, InputModule, NotificationModule, UIShellModule, IconModule, LoadingModule, DialogModule, ModalModule,
-         PlaceholderModule, SelectModule, GridModule } from 'carbon-components-angular';
+         SelectModule, GridModule, SearchModule, TableModule, DropdownModule, NumberModule, CheckboxModule } from 'carbon-components-angular'
+import { SearchComponent } from './modules/ui/components/search/search.component'
 
 @NgModule({
   declarations: [
     TranslationPipe,
     NotificationComponent,
+    SearchComponent
   ],
   imports: [
     FormsModule,
@@ -31,7 +33,13 @@ import { ButtonModule, InputModule, NotificationModule, UIShellModule, IconModul
     DialogModule,
     ModalModule,
     SelectModule,
-    GridModule
+    GridModule,
+    SearchModule,
+    TableModule,
+    InputModule,
+    DropdownModule,
+    NumberModule,
+    CheckboxModule
   ],
   exports: [
     FormsModule,
@@ -49,7 +57,14 @@ import { ButtonModule, InputModule, NotificationModule, UIShellModule, IconModul
     DialogModule,
     ModalModule,
     SelectModule,
-    GridModule
+    GridModule,
+    SearchModule,
+    SearchComponent,
+    TableModule,
+    InputModule,
+    DropdownModule,
+    NumberModule,
+    CheckboxModule
   ]
 })
 export class SharedModule { }

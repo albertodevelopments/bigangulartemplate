@@ -3,3 +3,4 @@ export { TranslationService } from './modules/translation/services/translation.s
 export { TranslationPipe } from './modules/translation/pipes/translation.pipe'
 export { NotificationComponent } from '@shared/modules/notifications/components/notification.component'
 export { NotificationEventService } from './modules/notifications/services/notification-event.service'
+export { SearchComponent } from '@shared/modules/ui/components/search/search.component'

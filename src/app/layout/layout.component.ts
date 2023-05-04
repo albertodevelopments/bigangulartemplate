@@ -7,13 +7,12 @@ import { Observable } from 'rxjs'
 /** App imports */
 import { AuthenticationService } from '@core/index'
 import { LayoutService } from '@layout/index'
-import { NotificationEventService, TranslationPipe } from '@shared/index'
+import { NotificationEventService } from '@shared/index'
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
-  providers: [TranslationPipe]
 })
 export class LayoutComponent implements OnInit{
 

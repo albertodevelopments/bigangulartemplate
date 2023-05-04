@@ -47,8 +47,7 @@ export class AuthenticationService {
 
     /** Si no existe el fichero de conexión con la API devuelve null */
     if(!AuthenticationConfigService.apiConfiguration?.value) {
-      throwError(() => new Error())
-      return of(null)
+      return throwError(() => null )
     }
 
     /** Obtenemos los parámetros de conexión a partir del fichero de configuración */
@@ -56,7 +55,6 @@ export class AuthenticationService {
     auth.setAuthObject(authObject)
 
     /** Parametrizamos la llamada http a la API con los parámetros de configuración obtenidos */
-    const contentType = auth.getContentType(AuthenticationConfigService.apiConfiguration.value.authentication.type)
     this._apiUrl = AuthenticationConfigService.apiConfiguration.value.url
     this._authType = AuthenticationConfigService.apiConfiguration.value.authentication.type
 

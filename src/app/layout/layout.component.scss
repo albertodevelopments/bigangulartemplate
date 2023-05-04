@@ -1,10 +1,11 @@
 @import 'variables';
+@import '/node_modules/carbon-components/scss/globals/scss/spacing';
 
 .layout-container{
     width: 100%;
     margin-left: 0;
     margin-top: $header-height;
-    height: calc(100% - $header-height);    
+    height: calc(100vh - $spacing-09);   
 }
 
 .layout-container--expanded{    

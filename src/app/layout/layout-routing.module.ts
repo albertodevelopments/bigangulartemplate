@@ -18,6 +18,11 @@ const routes: Routes = [
         canLoad: [AuthenticationGuard]
       },
       {
+        path: 'or/list',
+        loadChildren: () => import('@modules/ordenes-rep/ordenes-rep.module').then(m => m.OrdenesReparacionModule),
+        canLoad: [AuthenticationGuard]
+      },
+      {
         path: 'home',
         loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule),        
         canLoad: [AuthenticationGuard]

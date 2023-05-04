@@ -4,9 +4,9 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 
 /** Aplicación */
-import { iAuthentication, iAuthenticationError, AuthenticationService, loginErrorHandler, AuthenticationConfigService } from '@core/index';
-import { LayoutService } from '@layout/index';
-import { NotificationEventService, TranslationPipe } from '@shared/index';
+import { iAuthentication, iAuthenticationError, AuthenticationService, loginErrorHandler, AuthenticationConfigService } from '@core/index'
+import { LayoutService } from '@layout/index'
+import { NotificationEventService, TranslationPipe } from '@shared/index'
 
 @Component({
   selector: 'app-login',
@@ -72,6 +72,7 @@ export class LoginComponent implements OnInit{
   }
 
   showLoadingErrorMessage(){
+    this.type = 'error'
     this.caption = this.translationPipe.transform('global.error.api.file')
     this.showErrorMessage()
   }
@@ -109,10 +110,16 @@ export class LoginComponent implements OnInit{
               })
             }
           })
-          
         }
       },
-      error: error => this.handleError(error.status)
+      error: error => {
+        /** En caso de que venga un null tenemos un error no catalogado */
+        if(!error){
+          this.handleError(500)  
+        }else{
+          this.handleError(error.status)
+        }
+      }
     })
   }
 

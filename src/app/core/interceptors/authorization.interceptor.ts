@@ -3,9 +3,12 @@ import { Injectable } from '@angular/core'
 
 /** Http */
 import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpErrorResponse } from '@angular/common/http'
-import { catchError, finalize, Observable, throwError } from 'rxjs'
-import { Authentication, AuthenticationConfigService, AuthenticationService } from '..'
+import { catchError, Observable, throwError } from 'rxjs'
 import { Router } from '@angular/router'
+
+/** App imports */
+import { Authentication, AuthenticationConfigService, AuthenticationService } from '..'
+// import { labels } from '@data/consts'
 
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
@@ -23,7 +26,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     /** Si no existe el fichero de conexión con la API devuelve null */
     if(!AuthenticationConfigService.apiConfiguration?.value) {
       this.router.navigateByUrl('/login')
-      return throwError(() => new Error('Ha fallado la autorización') )
+      return throwError(() => null )
     }
 
     /** Obtenemos los parámetros de conexión a partir del fichero de configuración */
@@ -47,7 +50,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((err: HttpErrorResponse) => {
         this.router.navigate(['/login'])
-        return throwError(() => new Error('Ha fallado la autorización') )
+        return throwError(() => err)
       })
     )
   }

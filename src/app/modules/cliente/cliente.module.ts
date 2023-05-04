@@ -1,10 +1,10 @@
 /** Angular core */
-import { NgModule } from '@angular/core';
-import { ClienteRoutingModule } from '@modules/cliente';
+import { NgModule } from '@angular/core'
+import { ClienteRoutingModule } from '@modules/cliente'
 
 /** App imports */
-import { SharedModule } from '@shared/index';
-import { ClienteComponent } from '@modules/cliente';
+import { SharedModule } from '@shared/index'
+import { ClienteComponent } from '@modules/cliente'
 
 @NgModule({
   declarations: [

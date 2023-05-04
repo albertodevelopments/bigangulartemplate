@@ -1,12 +1,12 @@
 /** Angular core */
-import { Injectable, OnInit } from '@angular/core'
+import { Injectable } from '@angular/core'
 
 /** Http */
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { BehaviorSubject, Observable, of, take, tap } from 'rxjs'
 
 /** App imports */
-import { Authentication, AuthenticationConfigService } from '@core/index';
+import { Authentication, AuthenticationConfigService } from '@core/index'
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +47,9 @@ export class LayoutService {
         return this.http.get<any>(url, {headers}).pipe(
             take(1),
             /** Nos guardamos en el servicio el objeto con la estructura del menú */
-            tap(response => this._menuStructure.next(response))
+            tap(response => {
+                this._menuStructure.next(response)
+            })
         )
     }
 }

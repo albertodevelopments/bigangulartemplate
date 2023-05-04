@@ -8,6 +8,7 @@ export { iAuthenticationConfig } from './authentication/interfaces/iauthenticati
 export { AuthenticationService } from './authentication/services/authentication.service'
 export { AuthenticationConfigService } from './authentication/services/authentication-config.service'
 
+// export { loginErrorHandler, errorMessagesHandler } from './authentication/shared/authentication.utils'
 export { loginErrorHandler } from './authentication/shared/authentication.utils'
 
 export { CoreModule } from '@core/core.module'
