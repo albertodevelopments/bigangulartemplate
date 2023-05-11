@@ -1,8 +1,8 @@
-import { iAuthentication } from "../interfaces/iauthentication"
+import { AuthenticationInterface } from "@core/index"
 
-export class Authentication implements iAuthentication{
+export class Authentication implements AuthenticationInterface{
 
-    private _auth: iAuthentication
+    private _auth: AuthenticationInterface
 
     constructor(){
         this._auth = {
@@ -11,7 +11,7 @@ export class Authentication implements iAuthentication{
         }
     }
 
-    setAuthObject(authObject: iAuthentication){
+    setAuthObject(authObject: AuthenticationInterface){
         this._auth = authObject
     }
 

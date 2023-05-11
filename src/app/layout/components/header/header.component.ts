@@ -33,15 +33,19 @@ export class HeaderComponent {
     this.toggle.emit()
   }
 
-  openUserConfig(){
+  openUserConfig(): void{
     this.userConfigOpen = true
   }
 
-  closeUserConfig(){
+  closeUserConfig(): void{
     this.userConfigOpen = false
   }
 
-  logOut(){
+  goHome(): void{
+    this.router.navigate(['layout/home'])
+  }
+
+  logOut(): void{
     this.authenticationService.handleLogout()
     this.router.navigate(['login'])
   }  

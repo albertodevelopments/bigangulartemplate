@@ -1,0 +1,14 @@
+@import 'variables';
+
+.grid{
+    .grid__row{
+        margin-top: $spacing;
+    }
+}   
+.footer{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    // margin-top: 1rem;
+    // margin-right: -1rem;
+}

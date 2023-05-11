@@ -1,6 +1,6 @@
-import { iAuthenticationConfig } from "../interfaces/iauthentication-config";
+import { AuthenticationConfigInterface } from "../interfaces/authentication-config.interface";
 
-export class AuthenticationConfig implements iAuthenticationConfig{
+export class AuthenticationConfig implements AuthenticationConfigInterface{
 
     private _url: string
     private _authentication: {}
@@ -18,12 +18,12 @@ export class AuthenticationConfig implements iAuthenticationConfig{
         return this._authentication
     }
 
-    get authenticationConfig(): iAuthenticationConfig{
+    get authenticationConfig(): AuthenticationConfigInterface{
         const authenticationConfigObject = {
             url: this._url,
             authentication: this._authentication
         }
 
-        return authenticationConfigObject as iAuthenticationConfig
+        return authenticationConfigObject as AuthenticationConfigInterface
     }
 }

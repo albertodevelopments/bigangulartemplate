@@ -1,5 +1,0 @@
-export { OrdenesReparacionComponent } from '@modules/ordenes-rep/pages/ordenes-rep/ordenes-rep.component'
-export { OrdenReparacionComponent } from '@modules/ordenes-rep/pages/orden-rep/orden-rep.component'
-export { OrdenesReparacionService } from '@modules/ordenes-rep/services/ordenes-rep.service'
-export { OrdenesReparacionRoutingModule } from '@modules/ordenes-rep/ordenes-rep.routing.module'
-export { OrdenesReparacionModule } from '@modules/ordenes-rep/ordenes-rep.module'

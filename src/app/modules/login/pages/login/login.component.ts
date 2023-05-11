@@ -4,7 +4,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 
 /** Aplicación */
-import { iAuthentication, iAuthenticationError, AuthenticationService, loginErrorHandler, AuthenticationConfigService } from '@core/index'
+import { AuthenticationInterface, AuthenticationErrorInterface, AuthenticationService, loginErrorHandler, AuthenticationConfigService } from '@core/index'
 import { LayoutService } from '@layout/index'
 import { NotificationEventService, TranslationPipe } from '@shared/index'
 
@@ -17,7 +17,7 @@ import { NotificationEventService, TranslationPipe } from '@shared/index'
 export class LoginComponent implements OnInit{
 
   public loginForm: FormGroup
-  public auth: iAuthentication = {
+  public auth: AuthenticationInterface = {
     username: '',
     password: ''
   }
@@ -126,7 +126,7 @@ export class LoginComponent implements OnInit{
   /** Mostramos mensaje de error y bloqueamos formulario */
   private handleError(error: number): void{
     this.type = 'error'
-    const errorResponse: iAuthenticationError = loginErrorHandler(error)
+    const errorResponse: AuthenticationErrorInterface = loginErrorHandler(error)
 
     this.title = this.translationPipe.transform('global.error.header')
     this.caption = this.translationPipe.transform(errorResponse.errorMessage)

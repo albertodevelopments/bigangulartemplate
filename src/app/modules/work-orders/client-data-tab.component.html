@@ -1,0 +1,263 @@
+<form [formGroup]="woForm" (ngSubmit)="saveWorkOrder()">
+    <div ibmGrid class="grid">
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-label size="sm">
+                    {{ 'work.order.client' | translate }}
+                    <input
+                        ibmText
+                        type="number"
+                        size="sm"
+                        formControlName="raz"
+                    />
+                </ibm-label>
+            </div>                
+            <div ibmCol [columnNumbers]="{'md': 3, 'sm': 12}">
+                <ibm-label size="sm">
+                    {{ 'work.order.name' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="raz"
+                    />
+                </ibm-label>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 3, 'sm': 12}">
+                <ibm-label size="sm">
+                    {{ 'work.order.corporate.name' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="raz"
+                    />
+                </ibm-label>
+            </div>
+        </div>        
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-label size="sm">
+                    {{ 'work.order.cif' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="raz"
+                    />
+                </ibm-label>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 3, 'sm': 12}">
+                <ibm-label>
+                    {{ 'work.order.address' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="dir"
+                    />
+                </ibm-label>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 3, 'sm': 12}">
+                <ibm-label>
+                    {{ 'work.order.legal.entity' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="dir"
+                    />
+                </ibm-label>
+            </div>
+        </div>
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 3, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.province' | translate"
+                    size="sm"
+                    placeholder=""
+                    formControlName="pro"
+                    (selected)="selected($event)"
+                    (onClose)="onClose($event)">
+                    <ibm-dropdown-list [items]="provinces"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 3, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.city' | translate"
+                    size="sm"
+                    formControlName="pob"
+                    placeholder="">
+                    <ibm-dropdown-list [items]="cities"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-label>
+                    {{ 'work.order.postal.code' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="dir"
+                    />
+                </ibm-label>
+            </div>
+        </div>
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-label>
+                    {{ 'work.order.phone' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="tel"
+                    />
+                </ibm-label>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.payment.code' | translate"
+                    size="sm"
+                    placeholder=""
+                    formControlName="pgm">
+                    <ibm-dropdown-list [items]="paymentCodes"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.cash.discount' | translate"
+                    size="sm"
+                    placeholder=""
+                    formControlName="dpp">
+                    <ibm-dropdown-list [items]="cashDiscount"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-label>
+                    {{ 'work.order.currency' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="div"
+                    />
+                </ibm-label>
+            </div>            
+            <!-- <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-label>
+                    {{ 'work.order.salesrep.label' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="almnro"
+                    />
+                </ibm-label>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-number
+                    [label]="'work.order.km.label' | translate"
+                    min="0"
+                    size="sm"
+                    formControlName="km"
+                    [placeholder]="'work.order.km.placeholder' | translate"
+                >
+                </ibm-number>
+            </div>            
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-number
+                    [label]="'work.order.mechanic.label' | translate"
+                    min="0"
+                    size="sm"
+                    formControlName="mec"
+                    [placeholder]="'work.order.mechanic.placeholder' | translate"
+                    >
+                </ibm-number>
+            </div> -->
+        </div>
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.payment.days' | translate"
+                    size="sm"
+                    placeholder=""
+                    formControlName="pgd">
+                    <ibm-dropdown-list [items]="paymentDays"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.price.list' | translate"
+                    size="sm"
+                    placeholder=""
+                    formControlName="tar">
+                    <ibm-dropdown-list [items]="priceList"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.vat' | translate"
+                    size="sm"
+                    placeholder=""
+                    formControlName="iva">
+                    <ibm-dropdown-list [items]="vat"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+            <fieldset class="bx--fieldset">
+                <legend class="bx--label">{{'work.order.vat.by' | translate}}</legend>
+                <ibm-radio-group
+                    formControlName="ivac">
+                    <ibm-radio
+                        value="true">
+                        {{'work.order.vat.client' | translate}}
+                    </ibm-radio>
+                    <ibm-radio
+                        value="false">
+                        {{'work.order.vat.reference' | translate}}
+                    </ibm-radio>
+                </ibm-radio-group>
+                <ibm-checkbox formControlName="req">
+                    {{'work.order.equivalence.surcharge' | translate}}
+                </ibm-checkbox>
+            </fieldset>
+        </div>
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 4, 'sm': 12}">
+                <fieldset class="bx--fieldset">
+                    <legend class="bx--label">{{'work.order.bill.period' | translate}}</legend>
+                    <ibm-radio-group
+                        formControlName="perfac">
+                        <ibm-radio value="1">1</ibm-radio>
+                        <ibm-radio value="2">2</ibm-radio>
+                        <ibm-radio value="3">3</ibm-radio>
+                        <ibm-radio value="4">4</ibm-radio>
+                        <ibm-radio value="5">5</ibm-radio>
+                        <ibm-radio value="6">6</ibm-radio>
+                        <ibm-radio value="7">7</ibm-radio>
+                        <ibm-radio value="8">8</ibm-radio>
+                        <ibm-radio value="9">9</ibm-radio>
+                    </ibm-radio-group>
+                </fieldset>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 4, 'sm': 12}">
+                <ibm-label>
+                    {{'work.order.comments' | translate}}
+                    <textarea
+                        rows="5"
+                        ibmTextArea
+                        size="sm"
+                        formControlName="com"
+                        [placeholder]="'work.order.update.comments.placeholder' | translate"
+                    ></textarea>
+                </ibm-label>
+            </div>
+        </div>
+    </div>    
+</form>
+<ibm-button-set class="footer">
+    <button 
+        type="button" 
+        ibmButton="secondary"
+        (click)="goBack()"
+        >
+        {{ 'work.order.update.cancel' | translate }}
+    </button>
+    <button 
+        type="submit" 
+        ibmButton="primary"
+        >
+        {{ 'work.order.update.save' | translate }}<svg class="bx--btn__icon" ibmIcon="add" size="16"></svg>
+    </button>
+</ibm-button-set>

@@ -1,5 +1,4 @@
-@import '/node_modules/@carbon/colors';
-@import '/node_modules/carbon-components/scss/globals/scss/spacing';
+@import 'variables';
 
 .navbar{
     position: fixed;
@@ -8,41 +7,41 @@
     right: 0;
     left: 0;
     display: flex;
-    height: $spacing-09;
+    height: $header-height;
     align-items: center;
-    background-color: $gray-100;
+    background-color: $very-dark-gray;
     justify-content: space-between;
     padding-right: 1rem;
     
-    .navbar-left{
+    &__left{
         display: flex;
         align-items: center;
         justify-content: center; 
         text-align: right;
         background-color: black;
 
-        .logo{
+        .navbar__logo{
             height: 2rem;
             width: auto;
             object-fit: cover;
             margin-left: .5rem;
             border-radius: .15rem;
-            cursor: pointer;
-            transition: transform .2s ease-in-out;
-
+            transition: transform $animacion-transform;
+            
             &:hover{
                 transform: scale(1.1);
+                cursor: pointer;
             }
         }
     }
 
-    .user-info{
+    &__user-info{
         display: flex;
         align-items: center;
 
-        .header-icon{
-            width: 24px;
-            height: 24px;
+        .navbar__header-icon{
+            width: 1.5rem;
+            height: 1.5rem;
 
             path{
                 fill: $white;

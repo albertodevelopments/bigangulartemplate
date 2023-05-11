@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "presuntos-app": {
+    "webIsiParts-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/presuntos-app",
+            "outputPath": "dist/webIsiParts-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -32,7 +32,8 @@
             "styles": [
               "node_modules/carbon-components/scss/globals/scss/styles.scss",
               "src/styles.scss",
-              "src/assets/scss/styles.scss"
+              "src/assets/scss/styles.scss",
+              "src/assets/scss/responsive.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths":["src/assets/scss"]
@@ -44,8 +45,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -76,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "presuntos-app:build:production"
+              "browserTarget": "webIsiParts-app:build:production"
             },
             "development": {
-              "browserTarget": "presuntos-app:build:development"
+              "browserTarget": "webIsiParts-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "presuntos-app:build"
+            "browserTarget": "webIsiParts-app:build"
           }
         },
         "test": {

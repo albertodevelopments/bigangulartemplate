@@ -1,0 +1,240 @@
+<form [formGroup]="clientDataForm">
+    <div ibmGrid class="grid">
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-date-picker
+                    formControlName="fecdoc"
+                    dateFormat="Y/m/d"
+                    [language]="language"
+                    size="sm"
+                    [label]="'work.order.document.date' | translate"
+                >
+                </ibm-date-picker>
+            </div>  
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-label size="sm">
+                    {{ 'work.order.client' | translate }}
+                    <input
+                        ibmText
+                        type="number"
+                        size="sm"
+                        formControlName="cli"
+                    />
+                </ibm-label>
+            </div>                
+            <div ibmCol [columnNumbers]="{'md': 4, 'sm': 12}">
+                <ibm-label size="sm">
+                    {{ 'work.order.name' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="nom"
+                    />
+                </ibm-label>
+            </div>              
+        </div>        
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 1, 'sm': 12}">
+                <ibm-label size="sm">
+                    {{ 'work.order.cif' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="cif"
+                    />
+                </ibm-label>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 3, 'sm': 12}">
+                <ibm-label size="sm">
+                    {{ 'work.order.corporate.name' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="raz"
+                    />
+                </ibm-label>
+            </div>                      
+            <div ibmCol [columnNumbers]="{'md': 4, 'sm': 12}">
+                <ibm-label>
+                    {{ 'work.order.address' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="dir"
+                    />
+                </ibm-label>
+            </div>            
+        </div>
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 3, 'sm': 12}">
+                <ibm-label>
+                    {{ 'work.order.legal.entity' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="pju"
+                    />
+                </ibm-label>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.province' | translate"
+                    size="sm"
+                    placeholder=""
+                    [disabled]="action === 'M'"
+                    [(ngModel)]="pro"
+                    [ngModelOptions]="{standalone: true}"
+                    itemValueKey="id"
+                    (selected)="selected($event)">
+                    <ibm-dropdown-list [items]="provinces"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.city' | translate"
+                    size="sm"
+                    [disabled]="action === 'M'"
+                    [(ngModel)]="pob"
+                    [ngModelOptions]="{standalone: true}"
+                    itemValueKey="id"
+                    placeholder="">
+                    <ibm-dropdown-list [items]="cities"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>            
+        </div>
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 1, 'sm': 12}">
+                <ibm-label>
+                    {{ 'work.order.postal.code' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="codpos"
+                    />
+                </ibm-label>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 1, 'sm': 12}">
+                <ibm-label>
+                    {{ 'work.order.phone' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="tel"
+                    />
+                </ibm-label>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 3, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.payment.code' | translate"
+                    size="sm"
+                    [(ngModel)]="pgm"
+                    [ngModelOptions]="{standalone: true}"
+                    itemValueKey="id"
+                    placeholder="">
+                    <ibm-dropdown-list [items]="paymentCodes"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 3, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.surcharge' | translate"
+                    size="sm"
+                    [(ngModel)]="rfi"
+                    [ngModelOptions]="{standalone: true}"
+                    itemValueKey="id"
+                    placeholder="">
+                    <ibm-dropdown-list [items]="surcharge"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>                                
+        </div>
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 3, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.cash.discount' | translate"
+                    size="sm"
+                    placeholder=""
+                    [(ngModel)]="dpp"
+                    [ngModelOptions]="{standalone: true}"
+                    itemValueKey="id">
+                    <ibm-dropdown-list [items]="cashDiscount"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>  
+            <div ibmCol [columnNumbers]="{'md': 3, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.currency' | translate"
+                    size="sm"
+                    placeholder=""
+                    [(ngModel)]="div"
+                    [ngModelOptions]="{standalone: true}"
+                    itemValueKey="id">
+                    <ibm-dropdown-list [items]="currency"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>  
+        </div>
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.payment.days' | translate"
+                    size="sm"
+                    placeholder=""
+                    [(ngModel)]="pgd"
+                    [ngModelOptions]="{standalone: true}"
+                    itemValueKey="id">
+                    <ibm-dropdown-list [items]="paymentDays"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.price.list' | translate"
+                    size="sm"
+                    placeholder=""
+                    [(ngModel)]="tar"
+                    [ngModelOptions]="{standalone: true}"
+                    itemValueKey="id">
+                    <ibm-dropdown-list [items]="priceList"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.vat' | translate"
+                    size="sm"
+                    placeholder=""
+                    [(ngModel)]="iva"
+                    [ngModelOptions]="{standalone: true}"
+                    itemValueKey="id">
+                    <ibm-dropdown-list [items]="vat"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+            <fieldset class="bx--fieldset">
+                <legend class="bx--label">{{'work.order.vat.by' | translate}}</legend>
+                <ibm-radio-group
+                    formControlName="ivac">
+                    <ibm-radio
+                        value="true">
+                        {{'work.order.vat.client' | translate}}
+                    </ibm-radio>
+                    <ibm-radio
+                        value="false">
+                        {{'work.order.vat.reference' | translate}}
+                    </ibm-radio>
+                </ibm-radio-group>
+                <ibm-checkbox formControlName="req">
+                    {{'work.order.equivalence.surcharge' | translate}}
+                </ibm-checkbox>
+            </fieldset>
+        </div>
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 4, 'sm': 12}">
+                <fieldset class="bx--fieldset">
+                    <legend class="bx--label">{{'work.order.bill.period' | translate}}</legend>
+                    <ibm-radio-group
+                        formControlName="perfac">
+                        <ibm-radio 
+                            *ngFor="let radio of billPeriodRadio"
+                            [value]="radio.num"
+                        >{{radio.num}}</ibm-radio>
+                    </ibm-radio-group>
+                </fieldset>
+            </div>         
+        </div>
+    </div>        
+</form>

@@ -1,0 +1,144 @@
+<form [formGroup]="woForm">
+    <div ibmGrid class="grid">
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 1, 'sm': 12}">
+                <ibm-label>
+                    {{ 'work.order.salesrep' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="almnro"
+                    />
+                </ibm-label>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 1, 'sm': 12}">
+                <ibm-number
+                    [label]="'work.order.km' | translate"
+                    min="0"
+                    size="sm"
+                    formControlName="km"
+                    [placeholder]=""
+                >
+                </ibm-number>
+            </div>            
+            <div ibmCol [columnNumbers]="{'md': 1, 'sm': 12}">
+                <ibm-label size="sm">
+                    {{ 'work.order.mechanic' | translate }}
+                    <input
+                        ibmText
+                        type="number"
+                        size="sm"
+                        formControlName="mec"
+                    />
+                </ibm-label>
+            </div>       
+            <div ibmCol [columnNumbers]="{'md': 1, 'sm': 12}">
+                <ibm-dropdown
+                    [label]="'work.order.wo.type' | translate"
+                    size="sm"
+                    placeholder=""
+                    [(ngModel)]="tiprep"
+                    [ngModelOptions]="{standalone: true}"
+                    itemValueKey="id">
+                    <ibm-dropdown-list [items]="woType"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-label>
+                    {{ 'work.order.reference' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="refer"
+                    />
+                </ibm-label>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-label>
+                    {{ 'work.order.serial.number' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="numser"
+                    />
+                </ibm-label>
+            </div> 
+        </div>
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 1, 'sm': 12}">
+                <ibm-checkbox formControlName="presupuesto">
+                    {{'work.order.budget' | translate}}
+                </ibm-checkbox>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-date-picker
+                    formControlName="fecace"
+                    dateFormat="d/m/Y"
+                    [language]="language"
+                    size="sm"
+                    [label]="'work.order.acceptance.date' | translate"
+                >
+                </ibm-date-picker>
+            </div>
+            
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-date-picker
+                    formControlName="fecprev"
+                    dateFormat="Y/m/d"
+                    [language]="language"
+                    size="sm"
+                    [label]="'work.order.expected.date' | translate"
+                >
+                </ibm-date-picker>
+            </div>       
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-label>
+                    {{ 'work.order.machine' | translate }}
+                    <input
+                        ibmText
+                        size="sm"
+                        formControlName="maquina"
+                    />
+                </ibm-label>
+            </div>        
+        </div>
+        <div ibmRow class="grid__row">
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-label>
+                    {{'work.order.work.done' | translate}}
+                    <textarea
+                        rows="5"
+                        ibmTextArea
+                        size="sm"
+                        formControlName="reparacion"
+                        [placeholder]=""
+                    ></textarea>
+                </ibm-label>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 2, 'sm': 12}">
+                <ibm-label>
+                    {{'work.order.symptom' | translate}}
+                    <textarea
+                        rows="5"
+                        ibmTextArea
+                        size="sm"
+                        formControlName="sintoma"
+                        [placeholder]=""
+                    ></textarea>
+                </ibm-label>
+            </div>
+            <div ibmCol [columnNumbers]="{'md': 4, 'sm': 12}">
+                <ibm-label>
+                    {{'work.order.comments' | translate}}
+                    <textarea
+                        rows="5"
+                        ibmTextArea
+                        size="sm"
+                        formControlName="com"
+                        [placeholder]=""
+                    ></textarea>
+                </ibm-label>
+            </div>
+        </div>
+    </div>    
+</form>

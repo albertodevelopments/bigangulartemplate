@@ -8,6 +8,7 @@
     <form [formGroup]="configForm" (ngSubmit)="onSubmit()">
         <section ibmModalContent [hasForm]="true" class="section">
             <ibm-label
+                class="modal-label"
                 [invalid]="NomUsuarioSesion.touched && NomUsuarioSesion.errors?.['required']"
                 invalidText="{{ 'userconfig.error.no.language' | translate }}"
             >

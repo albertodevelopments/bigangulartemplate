@@ -34,37 +34,6 @@
                     >
                     {{ 'login.label.button' | translate }}
                 </button>
-                <!-- <div class="input-group">
-                    <input 
-                        type="text" 
-                        class="p-inputtext-sm" 
-                        pInputText 
-                        placeholder="{{'label.userName' | translate | async }}"
-                        formControlName="username"
-                        [ngClass]="{'ng-invalid ng-dirty': username.touched && username.errors?.required}"
-                        />
-                    <small 
-                        *ngIf="username.touched && username.errors?.required"
-                        class="p-error block">{{'label.error.login.no.user' | translate | async }}</small>
-                </div>
-                <div class="input-group">
-                    <input 
-                        type="password" 
-                        class="p-inputtext-sm" 
-                        pInputText 
-                        placeholder="{{'label.password' | translate | async }}"
-                        formControlName="password"
-                        [ngClass]="{'ng-invalid ng-dirty': password.touched && password.errors?.required}"
-                    />
-                    <small
-                    *ngIf="password.touched && password.errors?.required"
-                    class="p-error block">{{'label.error.login.no.password' | translate | async }}</small>                         
-                </div> -->
-                <!-- <Button 
-                    type="submit" 
-                    class="btn-primary"
-                    [disabled]="!loginForm.valid"
-                >{{ 'label.login' | translate | async }}</Button> -->
             </form>
         </div>
     </div>

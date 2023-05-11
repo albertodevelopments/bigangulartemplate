@@ -1,10 +1,5 @@
-.section{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+@import 'variables';
 
-.label{
-    margin-bottom: 1rem;
+.modal-label{
+    margin-top: $spacing;
 }
-

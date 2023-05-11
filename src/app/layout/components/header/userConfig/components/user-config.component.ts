@@ -35,7 +35,7 @@ export class UserConfigComponent {
       NomEmpresaSesion: new FormControl('')
     })
         
-    this.authenticationService.getUserSession().subscribe(response => {
+    this.authenticationService.userSession$.subscribe(response => {
       this.userSession = response
       this.configForm.patchValue({
         NomUsuarioSesion: this.userSession.NomUsuarioSesion,

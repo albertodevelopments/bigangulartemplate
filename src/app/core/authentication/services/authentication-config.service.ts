@@ -5,7 +5,7 @@ import { BehaviorSubject,Observable, map, take } from 'rxjs';
 import { localUrls } from '@data/consts'
 
 /** App imports */
-import { iAuthenticationConfig, AuthenticationConfig } from '@core/index';
+import { AuthenticationConfigInterface, AuthenticationConfig } from '@core/index';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ import { iAuthenticationConfig, AuthenticationConfig } from '@core/index';
 export class AuthenticationConfigService {
 
   private _configurationFile: string
-  public static apiConfiguration: BehaviorSubject<iAuthenticationConfig | null>
+  public static apiConfiguration: BehaviorSubject<AuthenticationConfigInterface | null>
 
   constructor(
     private http: HttpClient,
@@ -26,12 +26,12 @@ export class AuthenticationConfigService {
     this.http = new HttpClient(httpBackend)
     this._configurationFile = localUrls.apiFile
 
-    AuthenticationConfigService.apiConfiguration = new BehaviorSubject<iAuthenticationConfig | null>(null)
+    AuthenticationConfigService.apiConfiguration = new BehaviorSubject<AuthenticationConfigInterface | null>(null)
   }
 
   /** Cargamos el fichero de conexión con la API. Si no existiese, el return devolverá null */
-  loadConfiguration(): Observable<iAuthenticationConfig>{
-    return this.http.get<iAuthenticationConfig>(
+  loadConfiguration(): Observable<AuthenticationConfigInterface>{
+    return this.http.get<AuthenticationConfigInterface>(
       this._configurationFile,
       {headers: {"Cache-Control":'no-cache'}}
     ).pipe(

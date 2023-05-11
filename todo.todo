@@ -1,6 +1,11 @@
 * Texto en portugués menú
-* Repasar estilos menú
-* Revisar carpeta ui de shared
 * Todo lo relacionado con la constante labels de core está comentado - revisar
-* Registro inicial y modificado
 * De momento no ponemos ayuda en clientes
+* Tener en cuenta que falta configurar los accesos a la bbdd para los otros tipos de autenticación posibles
+* Desarrollar ngrx y pasar la empresa, el usuario y el token al estado global
+* Hacer el responsive - tabla
+* Guardar la empresa en backend (futuro)
+* Recuperar errores
+* Combos de dirección, población (y mecánicos)
+* Pensar opción para cliente
+* Añadir fecha

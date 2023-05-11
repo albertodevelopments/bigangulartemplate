@@ -1,0 +1,123 @@
+/* BOTONES */
+.bx--btn--primary{
+    background-color: $primary-color;
+    text-align: center;
+}
+
+.bx--btn--primary:hover{
+    background-color: $primary-hover;
+}
+
+.bx--btn--primary:active,
+.bx--btn--primary:focus{
+    border-color: $primary-color;
+    background-color: $primary-hover;
+    box-shadow: inset 0 0 0 1px $primary-color, inset 0 0 0 2px $light;
+    border: none;
+    outline: none;
+}
+
+/* INPUT TEXT */
+.bx--side-nav {
+    position: fixed;
+    z-index: 8000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: $menu-width;
+    max-width: $menu-width;
+    background-color: $light;
+    color: #525252;
+    transition: width 0.11s cubic-bezier(0.2, 0, 1, 0.9), max-width 0.11s cubic-bezier(0.2, 0, 1, 0.9);
+}
+
+.bx--text-input:focus, .bx--text-input:active {
+    outline: none;
+    border-bottom: 2px solid $primary-color;
+}
+
+input[data-invalid]:not(:focus), .bx--number[data-invalid] input[type=number]:not(:focus), .bx--text-input__field-wrapper[data-invalid] > .bx--text-input--invalid:not(:focus), .bx--text-area__wrapper[data-invalid] > .bx--text-area--invalid:not(:focus), .bx--select-input__wrapper[data-invalid] .bx--select-input:not(:focus), .bx--list-box[data-invalid]:not(:focus), .bx--combo-box[data-invalid] .bx--text-input:not(:focus) {
+    outline: 2px solid #da1e28;
+    outline-offset: -2px;
+}
+
+/* DRAWER */
+.bx--side-nav--ux {
+    top: $header-height;
+    height: 100%;
+}
+
+.bx--side-nav--expanded,
+.bx--side-nav--rail,
+.bx--side-nav.bx--side-nav--rail:not(.bx--side-nav--fixed):hover, .bx--side-nav--expanded{
+    width: 0;
+    max-width: 0;
+}
+
+.bx--side-nav > *{
+    color: inherit;
+}
+
+.bx--side-nav__icon:not(.bx--side-nav__submenu-chevron){
+    margin: 0;
+}
+
+.bx--side-nav__header-navigation,
+ibm-sidenav-menu .bx--side-nav__icon {
+    display: none;
+}
+
+.bx--side-nav__item.bx--side-nav__item--icon a.bx--side-nav__link:hover {
+    padding-left: .5rem; 
+    background-color: $primary-color;
+}
+
+a.bx--side-nav__link > .bx--side-nav__link-text, .bx--side-nav a.bx--header__menu-item .bx--text-truncate-end {
+    padding-left: 1rem; 
+    font-size: .8em;
+    padding: 0;
+}
+
+.bx--side-nav__submenu-title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    font-size: .8em;    
+}
+
+.bx--side-nav__item.bx--side-nav__item--icon a.bx--side-nav__link {
+	padding-left: 1rem;
+}
+
+.bx--side-nav{
+    border-right: 1px solid $light-gray;
+}
+
+/* HEADER */
+/* Botón toggle menu */
+.bx--header__nav {
+    display: block;
+}
+
+.bx--header__menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bx--header__action:focus {
+    border-color: $light;
+    outline: none;
+}
+
+.bx--header__menu-trigger:hover {
+    fill: #2c2c2c;
+}
+
+/* LOADING */
+.bx--loading__stroke {
+    stroke: $primary-text;
+    stroke-dashoffset: 52.527552;
+}
+

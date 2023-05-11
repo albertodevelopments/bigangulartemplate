@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, of, take, tap, throwError } from 'rxjs';
 
 /** App imports */
-import { iAuthentication, Authentication, AuthenticationConfigService, iAuthenticationSuccess, iUserSession } from '@core/index';
+import { AuthenticationInterface, Authentication, AuthenticationConfigService, AuthenticationSuccessInterface, iUserSession } from '@core/index';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +43,7 @@ export class AuthenticationService {
     this.userSession$ = this._userSession.asObservable()
   }
 
-  login(authObject: iAuthentication): Observable<iAuthenticationSuccess | null>{
+  login(authObject: AuthenticationInterface): Observable<AuthenticationSuccessInterface | null>{
 
     /** Si no existe el fichero de conexión con la API devuelve null */
     if(!AuthenticationConfigService.apiConfiguration?.value) {
@@ -62,7 +62,7 @@ export class AuthenticationService {
     const headers: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json')
     const url = AuthenticationConfigService.apiConfiguration.value.authentication.url
 
-    return this.http.post<iAuthenticationSuccess>(url, body, {headers}).pipe(
+    return this.http.post<AuthenticationSuccessInterface>(url, body, {headers}).pipe(
       take(1),
       tap({
         next: result => {
@@ -151,12 +151,12 @@ export class AuthenticationService {
     this.saveSession(userSessionObject)
   }
 
-  public getUserSession(): Observable<iUserSession>{
-    return this.userSession$.pipe(
-      take(1),
-      map(data => {
-        return data as iUserSession
-      })
-    )
-  }
+  // getUserSession(): Observable<iUserSession>{
+  //   return this.userSession$.pipe(
+  //     take(1),
+  //     map(data => {
+  //       return data as iUserSession
+  //     })
+  //   )
+  // }
 }

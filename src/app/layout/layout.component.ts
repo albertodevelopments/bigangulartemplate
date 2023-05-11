@@ -2,7 +2,7 @@
 import { Component, HostListener, OnInit } from '@angular/core'
 
 /** Routing */
-import { Observable } from 'rxjs'
+import { Observable, Subject } from 'rxjs'
 
 /** App imports */
 import { AuthenticationService } from '@core/index'
@@ -18,10 +18,12 @@ export class LayoutComponent implements OnInit{
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event){
-    this.largeSize = window.innerWidth > 1024    
+    this.largeSize = window.innerWidth > 1024
   }
 
   protected menuOpen: boolean
+  private _menuOpenSubject: Subject<boolean>
+  protected menuOpen$: Observable<boolean>
   protected isLoggedIn$: Observable<boolean>
   protected largeSize: boolean
   protected menuStructure: any
@@ -33,7 +35,8 @@ export class LayoutComponent implements OnInit{
   ){
     this.isLoggedIn$ = this.authenticationService.loggedIn$
     this.menuOpen = false
-    this.largeSize = true
+    this._menuOpenSubject = new Subject<boolean>()
+    this.menuOpen$ = this._menuOpenSubject.asObservable()
   }
 
   ngOnInit(): void {
@@ -45,5 +48,7 @@ export class LayoutComponent implements OnInit{
   toggleMenu(){
     this.menuOpen = !this.menuOpen
     this.largeSize = window.innerWidth > 1024
+
+    this._menuOpenSubject.next(this.menuOpen)
   }
 }

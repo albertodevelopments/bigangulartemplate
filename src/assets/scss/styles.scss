@@ -1,5 +1,4 @@
 @import 'variables';
-@import '/node_modules/@carbon/colors';
 
 /* Normalize */
 button,hr,input{overflow:visible}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}details,main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{padding:.35em .75em .625em}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}
@@ -8,7 +7,6 @@ body{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    // background: colors.$gray-10;
     font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -36,7 +34,7 @@ a:active {
 
 .box{
     padding: 2.5rem;
-    border-top: 1px solid $gray-30;
+    border-top: 1px solid $light-gray;
     margin-left: auto;
     margin-right: auto;
     border-radius: .25rem;
@@ -49,16 +47,38 @@ $interactive-01: $primary-color;
 $focus: $primary-color;
 $hover-primary: $primary-hover;
 $active-primary: $primary-color;
+$interactive-04: $primary-color;
 @import '/node_modules/carbon-components/scss/components/button/button';
 @import '/node_modules/carbon-components/scss/components/text-input/text-input';
+@import '/node_modules/carbon-components/scss/components/tabs/tabs';
+@import '/node_modules/carbon-components/scss/components/number-input/number-input';
+@import '/node_modules/carbon-components/scss/components/dropdown/dropdown';
+@import '/node_modules/carbon-components/scss/components/text-area/text-area';
+@import '/node_modules/carbon-components/scss/components/date-picker/date-picker';
 @import '/node_modules/carbon-components/scss/components/search/search';
 @import '/node_modules/carbon-components/scss/components/data-table/data-table-action';
+@import '/node_modules//carbon-components/scss/components/ui-shell/side-nav';
 @import '/node_modules/carbon-components/scss/globals/scss/spacing';
 
 .bx--side-nav--ux {
-    top: $spacing-09;
+    top: $header-height;
     height: 100%;
 }
+
+.bx--side-nav {
+    position: fixed;
+    z-index: 8000;
+    top: $header-height;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: $menu-width;
+    max-width: $menu-width;
+    background-color: $very-light-gray;
+    color: $gray;
+    transition: width 0.11s cubic-bezier(0.2, 0, 1, 0.9), max-width 0.11s cubic-bezier(0.2, 0, 1, 0.9);
+}
+
 
 .bx--side-nav--expanded,
 .bx--side-nav--rail,
@@ -103,7 +123,7 @@ a.bx--side-nav__link > .bx--side-nav__link-text, .bx--side-nav a.bx--header__men
 }
 
 .bx--side-nav{
-    border-right: 1px solid $gray-30;
+    border-right: 1px solid $light-gray;
 }
 
 /* HEADER */
@@ -125,5 +145,18 @@ a.bx--side-nav__link > .bx--side-nav__link-text, .bx--side-nav a.bx--header__men
 
 .bx--header__menu-trigger:hover {
     // fill: #2c2c2c;
-    fill: $gray-80
+    fill: $dark-gray;
+}
+
+.bx--tab-content{
+    background-color: $very-light-gray;
+    padding: 1rem 0 0 0;
+}
+
+.bx--grid{
+    max-width: unset;
+}
+
+.bx--btn-set{
+    min-width: 12.25rem;
 }

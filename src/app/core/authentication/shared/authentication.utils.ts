@@ -1,8 +1,8 @@
-import { iAuthenticationError } from "@core/index"
+import { AuthenticationErrorInterface } from "@core/index"
 // import { labels } from "@data/consts"
 
-export function loginErrorHandler(error: number): iAuthenticationError{
-    let errorResponse: iAuthenticationError
+export function loginErrorHandler(error: number): AuthenticationErrorInterface{
+    let errorResponse: AuthenticationErrorInterface
     
     switch(error){
         case 401:

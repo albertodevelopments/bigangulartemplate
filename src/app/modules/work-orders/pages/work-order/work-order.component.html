@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="container__header">
+        <h1 class="header__title">{{ 'work.order.update.header' | translate }} - {{workOrderCode}}</h1>
+    </div>
+    <form (ngSubmit)="saveWorkOrder()" class="container__tabs">
+        <ibm-tabs type="container" [followFocus]="true" [isNavigation]="true" [cacheActive]="true">
+            <ibm-tab [heading]="'work.order.client.tab.header' | translate">    
+                <app-client-data-tab
+                    *ngIf="workOrderData && workOrderData.workOrder"               
+                    [companyCode]="companyCode"
+                    [language]="language"
+                    [workOrderData]="workOrderData"
+                    action="M"
+                ></app-client-data-tab>        
+            </ibm-tab>
+            <ibm-tab [heading]="'work.order.wo.tab.header' | translate" size="lg">    
+                <app-work-order-tab     
+                    *ngIf="workOrderData && workOrderData.workOrder"               
+                    [language]="language"
+                    [currentWorkOrder]="workOrderData.workOrder"
+                    action="M"
+                ></app-work-order-tab>        
+            </ibm-tab>            
+        </ibm-tabs>    
+        <ibm-button-set class="tabs__footer">
+            <button 
+                type="button" 
+                ibmButton="secondary"
+                (click)="goBack()"
+                >
+                {{ 'work.order.update.cancel' | translate }}
+            </button>
+            <button 
+                type="submit" 
+                ibmButton="primary"
+                >
+                {{ 'work.order.update.save' | translate }}<svg class="bx--btn__icon" ibmIcon="add" size="16"></svg>
+            </button>
+        </ibm-button-set>
+    </form>
+</div>
+

@@ -5,8 +5,14 @@
     justify-content: center;
     align-items: center;
 
-    .home-icon{
+    &__home-icon{
         width: 40rem;
         object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    .container__home-icon{
+        width: 24rem;
     }
 }

@@ -10,14 +10,12 @@ import { NotificationComponent } from '@shared/modules/notifications/components/
 
 /* Librerías */
 import { ButtonModule, InputModule, NotificationModule, UIShellModule, IconModule, LoadingModule, DialogModule, ModalModule,
-         SelectModule, GridModule, SearchModule, TableModule, DropdownModule, NumberModule, CheckboxModule } from 'carbon-components-angular'
-import { SearchComponent } from './modules/ui/components/search/search.component'
+         SelectModule, GridModule, SearchModule, TableModule, DropdownModule, NumberModule, CheckboxModule, TabsModule, RadioModule, DatePickerModule } from 'carbon-components-angular'
 
 @NgModule({
   declarations: [
     TranslationPipe,
-    NotificationComponent,
-    SearchComponent
+    NotificationComponent
   ],
   imports: [
     FormsModule,
@@ -39,7 +37,11 @@ import { SearchComponent } from './modules/ui/components/search/search.component
     InputModule,
     DropdownModule,
     NumberModule,
-    CheckboxModule
+    CheckboxModule,
+    TabsModule,
+    CheckboxModule,
+    RadioModule,
+    DatePickerModule
   ],
   exports: [
     FormsModule,
@@ -59,12 +61,15 @@ import { SearchComponent } from './modules/ui/components/search/search.component
     SelectModule,
     GridModule,
     SearchModule,
-    SearchComponent,
     TableModule,
     InputModule,
     DropdownModule,
     NumberModule,
-    CheckboxModule
+    CheckboxModule,
+    TabsModule,
+    CheckboxModule,
+    RadioModule,
+    DatePickerModule
   ]
 })
 export class SharedModule { }

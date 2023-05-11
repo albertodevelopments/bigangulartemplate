@@ -3,8 +3,9 @@
     (toggle)="toggleMenu()"
 ></app-header>
 <app-menu
-    [active]="menuOpen"
+    [active$]="menuOpen$"
     [menuStructure]="menuStructure"
+    (closeMenuFromParent)="toggleMenu()"
 ></app-menu>
 <div class="layout-container"
     [ngClass]="{'layout-container--expanded': menuOpen && largeSize}"
